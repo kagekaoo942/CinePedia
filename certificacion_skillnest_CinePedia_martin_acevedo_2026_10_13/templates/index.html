@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>CinePedia</title>
+</head>
+
+<body>
+    <div class="datos_usuario">
+        <div class="registro">
+            <h2>Registro</h2>
+            <!-- formulario para registro -->
+
+            <form action="">
+                <!-- columna de registro -->
+                <div class="column">
+
+                    <label for="">Nombre</label>
+                    <label for="">Apellido</label>
+                    <label for="">E-mail</label>
+                    <label for="">Constraseña</label>
+                    <label for="">Conf. contraseña</label>
+                    <input type="text">
+                    <input type="text">
+                    <input type="email">
+                    <input type="password">
+                    <input type="password">
+                </div>
+                <div class="boton">
+                    <button>registrar</button>
+                </div>
+                <!-- inicio de sesión -->
+                <div class="iniciar-sesion">
+                    <h1>Inicio de sesión</h1>
+                    <div class="column">
+                        <label for="">E-mail</label>
+                        <label for="">contraseña</label>
+                        <input type="email">
+                        <input type="password">
+                        <div class="boton">
+                            <button>Iniciar sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
