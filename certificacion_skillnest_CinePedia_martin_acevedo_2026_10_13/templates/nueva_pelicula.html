@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CinePedia - Películas</title>
+
+  <!-- Tipografía (letra estilo manuscrito) -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <!-- Archivo de estilos de esta página -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/nueva_pelicula.css') }}">
+</head>
+<body>
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado">
+    <h2 class="logo">CinePedia</h2>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="contenido">
+
+    <!-- Barra superior: saludo y enlaces -->
+    <div class="barra">
+      <h1>Bienvenido, Miyagi</h1>
+
+      <nav class="enlaces">
+        <a href="/nueva_pelicula">Nueva Peli</a>
+        <a href="/logout">Cerrar Sesión</a>
+      </nav>
+    </div>
+
+    <!-- Tabla de películas -->
+    <table>
+      <thead>
+        <tr>
+          <th>Película</th>
+          <th>Director</th>
+          <th>Fecha de Estreno</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!-- Solo se muestran Editar y Borrar si el usuario creó la película -->
+        <tr>
+          <td>Furiosa</td>
+          <td>George Miller</td>
+          <td>2024-05-24</td>
+          <td>
+            <a href="/peliculas/1">Ver</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Los Juegos del Hambre</td>
+          <td>Gary Ross</td>
+          <td>2012-03-23</td>
+          <td>
+            <a href="/peliculas/2">Ver</a>
+            <a href="/peliculas/2/editar">Editar</a>
+            <a href="/peliculas/2/borrar">Borrar</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Perdido</td>
+          <td>David Fincher</td>
+          <td>2014-09-26</td>
+          <td>
+            <a href="/peliculas/3">Ver</a>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Eterno Resplandor de una mente...</td>
+          <td>Michel Gondry</td>
+          <td>2004-03-05</td>
+          <td>
+            <a href="/peliculas/4">Ver</a>
+            <a href="/peliculas/4/editar">Editar</a>
+            <a href="/peliculas/4/borrar">Borrar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </main>
+
+</body>
+</html>

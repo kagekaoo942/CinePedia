@@ -1,54 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>CinePedia</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CinePedia</title>
+
+  <!-- Tipografía (letra estilo manuscrito) -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <!-- Archivo de estilos -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-
 <body>
-    <div class="datos_usuario">
-        <div class="registro">
-            <h2>Registro</h2>
-            <!-- formulario para registro -->
 
-            <form action="">
-                <!-- columna de registro -->
-                <div class="column">
+  <!-- ENCABEZADO -->
+  <header class="encabezado">
+    <h2 class="logo">CinePedia</h2>
+  </header>
 
-                    <label for="">Nombre</label>
-                    <label for="">Apellido</label>
-                    <label for="">E-mail</label>
-                    <label for="">Constraseña</label>
-                    <label for="">Conf. contraseña</label>
-                    <input type="text">
-                    <input type="text">
-                    <input type="email">
-                    <input type="password">
-                    <input type="password">
-                </div>
-                <div class="boton">
-                    <button>registrar</button>
-                </div>
-                <!-- inicio de sesión -->
-                <div class="iniciar-sesion">
-                    <h1>Inicio de sesión</h1>
-                    <div class="column">
-                        <label for="">E-mail</label>
-                        <label for="">contraseña</label>
-                        <input type="email">
-                        <input type="password">
-                        <div class="boton">
-                            <button>Iniciar sesión</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    </div>
+  <!-- CONTENIDO: contiene las dos tarjetas lado a lado -->
+  <main class="contenido">
+
+    <!-- TARJETA 1: Registro -->
+    <section class="tarjeta">
+      <h1>Registro</h1>
+
+      <form action="/registro" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="apellido">Apellido</label>
+        <input type="text" id="apellido" name="apellido">
+
+        <label for="email-registro">E-mail</label>
+        <input type="email" id="email-registro" name="email">
+
+        <label for="password-registro">Contraseña</label>
+        <input type="password" id="password-registro" name="password">
+
+        <label for="confirmar">Conf. Contraseña</label>
+        <input type="password" id="confirmar" name="confirmar_password">
+
+        <button type="submit">Registrar</button>
+      </form>
+    </section>
+
+    <!-- TARJETA 2: Inicio de Sesión -->
+    <section class="tarjeta">
+      <h1>Inicio de Sesión</h1>
+
+      <form action="/login" method="post">
+        <label for="email-login">E-mail</label>
+        <input type="email" id="email-login" name="email">
+
+        <label for="password-login">Contraseña</label>
+        <input type="password" id="password-login" name="password">
+
+        <button type="submit">Iniciar Sesión</button>
+      </form>
+    </section>
+
+  </main>
+
 </body>
-
 </html>
