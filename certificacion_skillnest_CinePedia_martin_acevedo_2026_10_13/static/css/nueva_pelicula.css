@@ -84,10 +84,7 @@ a:hover {
   color: #8b1e1e;
 }
 
-
-/* ============================
-   TABLA
-   ============================ */
+/* tabla */
 
 table {
   width: 100%;
@@ -99,7 +96,7 @@ table {
 th,
 td {
   text-align: left;
-  padding: 14px 40px;               /* poco alto, mucho ancho en cada celda */
+  padding: 14px 40px;               /* poco alto y mucho ancho en cada celda */
   border: 1px solid #000000;
 }
 
@@ -124,10 +121,6 @@ td a {
 }
 
 
-/* ============================
-   PANTALLAS MEDIANAS Y PEQUEÑAS
-   ============================ */
-
 @media (max-width: 1000px) {
   .contenido {
     margin: 20px 12px;
@@ -138,7 +131,6 @@ td a {
     font-size: 38px;
   }
 
-  th,
   td {
     padding: 12px 16px;
   }
