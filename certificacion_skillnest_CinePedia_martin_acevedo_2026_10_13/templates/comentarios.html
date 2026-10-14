@@ -11,9 +11,13 @@
       <div class="dato"><span class="etiqueta">Sinopsis:</span><p>{{ pelicula["sinopsis"] }}</p></div>
     </section>
     <section class="comentarios">
-      <form action="{{ url_for('movies.add_comment', pelicula_id=pelicula['id']) }}" method="post" class="nuevo-comentario">
-        <input name="comentario" placeholder="Escribe un comentario..." required><button>Enviar</button>
-      </form>
+      {% if pelicula["usuario_id"] != usuario["id"] %}
+        <form action="{{ url_for('movies.add_comment', pelicula_id=pelicula['id']) }}" method="post" class="nuevo-comentario">
+          <input name="comentario" placeholder="Escribe un comentario..." required><button>Enviar</button>
+        </form>
+      {% else %}
+        <p>No puedes comentar tu propia película.</p>
+      {% endif %}
       <div class="lista">
         {% for comentario in comentarios %}
           <article class="comentario"><h3>{{ comentario["autor"] }}</h3><p>{{ comentario["texto"] }}</p>

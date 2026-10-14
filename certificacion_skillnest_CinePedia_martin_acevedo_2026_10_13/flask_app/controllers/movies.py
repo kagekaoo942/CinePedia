@@ -27,6 +27,8 @@ def movie_data(form):
     }
     if not all(data.values()):
         return data, "Todos los campos de la película son obligatorios."
+    if any(len(value) < 3 for value in data.values()):
+        return data, "Todos los campos deben tener al menos 3 caracteres."
     return data, None
 
 
@@ -106,6 +108,12 @@ def view_movie(pelicula_id):
 @movies_bp.post("/peliculas/<int:pelicula_id>/comentar")
 @login_required
 def add_comment(pelicula_id):
+    movie = find_movie(pelicula_id)
+    if movie is None:
+        return "Película no encontrada", 404
+    if movie["usuario_id"] == session["usuario_id"]:
+        flash("No puedes comentar tu propia película.")
+        return redirect(url_for("movies.view_movie", pelicula_id=pelicula_id))
     text = request.form.get("comentario", "").strip()
     if text:
         create_comment(text, pelicula_id, session["usuario_id"])
