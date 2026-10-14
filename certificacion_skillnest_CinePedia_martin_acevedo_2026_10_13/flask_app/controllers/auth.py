@@ -3,7 +3,7 @@ from functools import wraps
 from flask import Blueprint, flash, redirect, render_template, request, session, url_for
 from mysql.connector import IntegrityError
 
-from flask_app.models import create_user, find_user, find_user_by_email
+from flask_app.models import UserModel
 from flask_app.config.security import check_password, hash_password
 
 
@@ -13,7 +13,7 @@ auth_bp = Blueprint("auth", __name__)
 def logged_user():
     if "usuario_id" not in session:
         return None
-    return find_user(session["usuario_id"])
+    return UserModel.find(session["usuario_id"])
 
 
 def login_required(view):
@@ -49,7 +49,7 @@ def register():
         flash("Las contraseñas no coinciden.")
     else:
         try:
-            create_user(nombre, apellido, email, hash_password(password))
+            UserModel.create(nombre, apellido, email, hash_password(password))
             flash("Registro exitoso. Ahora puedes iniciar sesión.")
         except IntegrityError:
             flash("El e-mail ya está registrado.")
@@ -59,7 +59,7 @@ def register():
 @auth_bp.post("/login")
 def login():
     email = request.form.get("email", "").strip().lower()
-    user = find_user_by_email(email)
+    user = UserModel.find_by_email(email)
     if user is None or not check_password(request.form.get("password", ""), user["password"]):
         flash("El e-mail o la contraseña son incorrectos.")
         return redirect(url_for("auth.index"))

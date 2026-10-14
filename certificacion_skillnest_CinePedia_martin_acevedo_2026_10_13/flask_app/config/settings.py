@@ -11,6 +11,7 @@ def load_env_file():
         return
     for line in env_file.read_text(encoding="utf-8").splitlines():
         line = line.strip()
+        # Las variables del sistema tienen prioridad sobre las del archivo.
         if line and not line.startswith("#") and "=" in line:
             name, value = line.split("=", 1)
             os.environ.setdefault(name.strip(), value.strip().strip("\"'"))

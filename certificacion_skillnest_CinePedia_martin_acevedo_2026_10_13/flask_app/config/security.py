@@ -4,6 +4,7 @@ import secrets
 
 
 def hash_password(password):
+    # El salt viaja junto al hash para poder comprobar la contraseña después.
     salt = secrets.token_hex(16)
     password_hash = hashlib.pbkdf2_hmac(
         "sha256", password.encode(), salt.encode(), 120000

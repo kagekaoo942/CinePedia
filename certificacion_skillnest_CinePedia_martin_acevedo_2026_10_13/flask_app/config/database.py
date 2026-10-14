@@ -5,6 +5,7 @@ from flask_app.config.settings import DB_CONFIG
 
 
 def get_db():
+    # La conexión se reutiliza durante la misma solicitud.
     if "db" not in g:
         g.db = mysql.connector.connect(**DB_CONFIG)
     return g.db
@@ -33,6 +34,7 @@ def close_db(error=None):
 def init_db():
     database = get_db()
     cursor = database.cursor()
+    # Permite iniciar el proyecto sin ejecutar las tablas manualmente.
     statements = (
         """
         CREATE TABLE IF NOT EXISTS usuarios (
