@@ -14,7 +14,7 @@
   <main class="contenido">
     <div class="barra">
       <h1>Bienvenido, {{ usuario["nombre"] }}</h1>
-      <nav class="enlaces"><a href="{{ url_for('nueva_pelicula') }}">Nueva Peli</a><a href="{{ url_for('logout') }}">Cerrar Sesión</a></nav>
+      <nav class="enlaces"><a href="{{ url_for('movies.new_movie') }}">Nueva Peli</a><a href="{{ url_for('auth.logout') }}">Cerrar Sesión</a></nav>
     </div>
     <table>
       <thead><tr><th>Película</th><th>Director</th><th>Fecha de Estreno</th><th>Acciones</th></tr></thead>
@@ -23,10 +23,10 @@
         <tr>
           <td>{{ pelicula["nombre"] }}</td><td>{{ pelicula["director"] }}</td><td>{{ pelicula["fecha_estreno"] }}</td>
           <td>
-            <a href="{{ url_for('ver_pelicula', pelicula_id=pelicula['id']) }}">Ver</a>
+            <a href="{{ url_for('movies.view_movie', pelicula_id=pelicula['id']) }}">Ver</a>
             {% if pelicula["usuario_id"] == usuario["id"] %}
-              <a href="{{ url_for('editar_pelicula', pelicula_id=pelicula['id']) }}">Editar</a>
-              <a href="{{ url_for('borrar_pelicula', pelicula_id=pelicula['id']) }}">Borrar</a>
+              <a href="{{ url_for('movies.edit_movie', pelicula_id=pelicula['id']) }}">Editar</a>
+              <a href="{{ url_for('movies.remove_movie', pelicula_id=pelicula['id']) }}">Borrar</a>
             {% endif %}
           </td>
         </tr>

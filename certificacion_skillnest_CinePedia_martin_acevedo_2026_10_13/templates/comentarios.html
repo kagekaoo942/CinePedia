@@ -2,7 +2,7 @@
 <html lang="es">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{{ pelicula["nombre"] }} - CinePedia</title><link rel="stylesheet" href="{{ url_for('static', filename='css/comentarios.css') }}"></head>
 <body>
-  <header class="barra"><h2 class="logo">CinePedia</h2><nav class="enlaces"><a href="{{ url_for('inicio') }}">Inicio</a><a href="{{ url_for('logout') }}">Cerrar Sesión</a></nav></header>
+  <header class="barra"><h2 class="logo">CinePedia</h2><nav class="enlaces"><a href="{{ url_for('movies.home') }}">Inicio</a><a href="{{ url_for('auth.logout') }}">Cerrar Sesión</a></nav></header>
   <main class="contenido">
     <section class="pelicula">
       <h1>{{ pelicula["nombre"] }}</h1><p class="publicado">Publicado por: {{ pelicula["autor"] }}</p>
@@ -11,13 +11,13 @@
       <div class="dato"><span class="etiqueta">Sinopsis:</span><p>{{ pelicula["sinopsis"] }}</p></div>
     </section>
     <section class="comentarios">
-      <form action="{{ url_for('comentar', pelicula_id=pelicula['id']) }}" method="post" class="nuevo-comentario">
+      <form action="{{ url_for('movies.add_comment', pelicula_id=pelicula['id']) }}" method="post" class="nuevo-comentario">
         <input name="comentario" placeholder="Escribe un comentario..." required><button>Enviar</button>
       </form>
       <div class="lista">
         {% for comentario in comentarios %}
           <article class="comentario"><h3>{{ comentario["autor"] }}</h3><p>{{ comentario["texto"] }}</p>
-            {% if comentario["usuario_id"] == usuario["id"] %}<a href="{{ url_for('borrar_comentario', comentario_id=comentario['id']) }}" class="borrar">Borrar</a>{% endif %}
+            {% if comentario["usuario_id"] == usuario["id"] %}<a href="{{ url_for('movies.remove_comment', comentario_id=comentario['id']) }}" class="borrar">Borrar</a>{% endif %}
           </article>
         {% else %}<p>Aún no hay comentarios.</p>{% endfor %}
       </div>

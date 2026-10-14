@@ -14,7 +14,7 @@
   <main class="contenido">
     <section class="tarjeta">
       <h1>Registro</h1>
-      <form action="{{ url_for('registro') }}" method="post">
+      <form action="{{ url_for('auth.register') }}" method="post">
         <label>Nombre</label><input name="nombre" required>
         <label>Apellido</label><input name="apellido" required>
         <label>E-mail</label><input type="email" name="email" required>
@@ -25,7 +25,7 @@
     </section>
     <section class="tarjeta">
       <h1>Inicio de Sesión</h1>
-      <form action="{{ url_for('login') }}" method="post">
+      <form action="{{ url_for('auth.login') }}" method="post">
         <label>E-mail</label><input type="email" name="email" required>
         <label>Contraseña</label><input type="password" name="password" required>
         <button>Iniciar Sesión</button>

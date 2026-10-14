@@ -1,57 +1,50 @@
-/* Reiniciar los estilos globales */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Fondo y letra de toda la página */
 body {
   font-family: "Patrick Hand", cursive;
   background-color: #2b2b2b;
   color: #000000;
+  min-height: 700px;
 }
 
 .mensajes {
-  max-width: 900px;
-  margin: 20px auto 0;
+  margin: 20px;
   padding: 12px 18px;
-  background: #f4c542;
-  border: 2px solid #000;
+  background-color: #f4c542;
+  border: 2px solid #000000;
   font-size: 20px;
 }
 
-
-/* contenido del encabezado */
 .encabezado {
   background-color: #8b1e1e;
-  padding: 20px;
+  padding: 22px 20px;
   text-align: center;
 }
 
 .logo {
   color: #ffffff;
-  font-size: 32px;
+  font-size: 34px;
   font-weight: normal;
 }
 
-/* contenido principal */
 .contenido {
-  display: flex;          /* pone las tarjetas una al lado de la otra */
-  gap: 30px;              /* espacio entre las tarjetas */
+  display: flex;
+  gap: 30px;
   padding: 40px;
 }
 
-
-/* tarjetas */
 .tarjeta {
-/* cada tarjeta ocupa la mitad del ancho */
   flex: 1;
+  min-width: 300px;
   background-color: #ffffff;
   border: 3px solid #000000;
   border-radius: 8px;
   padding: 30px;
-  box-shadow: 6px 6px 0 #8b1e1e;   /* sombra roja */
+  box-shadow: 6px 6px 0 #8b1e1e;
 }
 
 .tarjeta h1 {
@@ -60,10 +53,6 @@ body {
   font-weight: normal;
   margin-bottom: 25px;
 }
-
-
-
-/* formularios */
 
 label {
   display: block;
@@ -74,8 +63,7 @@ label {
 
 input {
   display: block;
-/* el campo ocupa todo el ancho de la tarjeta */
-  width: 100%;
+  width: 300px;
   height: 42px;
   font-family: inherit;
   font-size: 18px;
@@ -85,12 +73,18 @@ input {
   border-radius: 4px;
 }
 
-
-/* botones */
 button {
   padding: 10px 35px;
   background-color: #f4c542;
   border: 2px solid #000000;
   border-radius: 4px;
   box-shadow: 4px 4px 0 #000000;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .contenido {
+    flex-direction: column;
+    padding: 20px;
+  }
 }

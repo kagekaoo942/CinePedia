@@ -1,5 +1,3 @@
--- CinePedia - base de datos para MySQL Workbench
-
 CREATE DATABASE IF NOT EXISTS cinepedia
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
@@ -21,6 +19,7 @@ CREATE TABLE IF NOT EXISTS peliculas (
     fecha_estreno DATE NOT NULL,
     sinopsis TEXT NOT NULL,
     usuario_id INT NOT NULL,
+    CONSTRAINT uk_peliculas_nombre UNIQUE (nombre),
     CONSTRAINT fk_peliculas_usuario
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 ) ENGINE=InnoDB;
