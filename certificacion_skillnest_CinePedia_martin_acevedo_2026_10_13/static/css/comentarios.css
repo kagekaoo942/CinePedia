@@ -1,0 +1,231 @@
+/* ============================
+   GENERAL
+   ============================ */
+
+/* Quita los márgenes por defecto del navegador */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* La página ocupa toda la pantalla */
+body {
+  font-family: "Patrick Hand", cursive;
+  background-color: #f4ecdc;        /* fondo crema */
+  color: #1f1f1f;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ============================
+   BARRA SUPERIOR
+   ============================ */
+
+.barra {
+  display: flex;                    /* logo a la izquierda, enlaces a la derecha */
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 50px;
+  background-color: #1f1f1f;
+  border-bottom: 6px solid #f4c542; /* línea dorada */
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 34px;
+  font-weight: normal;
+}
+
+.enlaces a {
+  margin-left: 35px;
+  font-size: 24px;
+  color: #f4c542;
+  text-decoration: underline;
+}
+
+.enlaces a:hover {
+  color: #ffffff;
+}
+
+
+/* ============================
+   CONTENIDO (ocupa todo el espacio)
+   ============================ */
+
+.contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;                        /* espacio entre película y comentarios */
+  padding: 40px 50px;
+}
+
+
+/* ============================
+   INFORMACIÓN DE LA PELÍCULA
+   ============================ */
+
+.pelicula {
+  background-color: #ffffff;
+  border: 3px solid #1f1f1f;
+  border-radius: 4px;
+  padding: 30px 40px;
+  box-shadow: 6px 6px 0 #1f1f1f;
+}
+
+.pelicula h1 {
+  font-size: 48px;
+  font-weight: normal;
+}
+
+.publicado {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+/* Cada dato: etiqueta a la izquierda y valor a la derecha */
+.dato {
+  display: flex;
+  gap: 25px;
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.etiqueta {
+  width: 120px;                     /* todas las etiquetas miden lo mismo */
+  flex-shrink: 0;                   /* evita que se achiquen */
+}
+
+
+/* ============================
+   COMENTARIOS
+   ============================ */
+
+.comentarios {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  background-color: #6b6b6b;        /* fondo gris */
+  border: 3px solid #1f1f1f;
+  border-radius: 4px;
+  padding: 30px 40px;
+  box-shadow: 6px 6px 0 #1f1f1f;
+  color: #ffffff;
+}
+
+/* Campo de texto + botón Enviar en una misma fila */
+.nuevo-comentario {
+  display: flex;
+  gap: 15px;
+}
+
+.nuevo-comentario input {
+  flex: 1;                          /* el campo ocupa todo el ancho que queda */
+  font-family: inherit;
+  font-size: 20px;
+  padding: 10px 15px;
+  border: 3px solid #1f1f1f;
+  border-radius: 4px;
+}
+
+.nuevo-comentario input:focus {
+  outline: none;
+  border-color: #f4c542;
+}
+
+/* Lista con scroll */
+.lista {
+  flex: 1;
+  min-height: 200px;
+  max-height: 350px;
+  overflow-y: auto;                 /* aparece scroll si hay muchos comentarios */
+  padding-right: 15px;
+}
+
+.comentario {
+  margin-bottom: 25px;
+}
+
+.comentario h3 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.comentario p {
+  font-size: 20px;
+}
+
+
+/* ============================
+   BOTONES
+   ============================ */
+
+button,
+.borrar {
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px 25px;
+  border: 3px solid #1f1f1f;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 #1f1f1f;
+  cursor: pointer;
+}
+
+/* Botón Enviar */
+button {
+  background-color: #ffffff;
+  color: #1f1f1f;
+}
+
+button:hover {
+  background-color: #f4c542;
+}
+
+/* Botón Borrar (es un enlace con forma de botón) */
+.borrar {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #d10000;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.borrar:hover {
+  background-color: #a30000;
+}
+
+
+/* ============================
+   PANTALLAS PEQUEÑAS (celular)
+   ============================ */
+
+@media (max-width: 800px) {
+  .barra {
+    flex-direction: column;         /* logo arriba, enlaces debajo */
+    gap: 12px;
+    padding: 20px;
+  }
+
+  .enlaces a {
+    margin: 0 15px;
+  }
+
+  .contenido {
+    padding: 20px;
+  }
+
+  .pelicula,
+  .comentarios {
+    padding: 20px;
+  }
+
+  .dato {
+    flex-direction: column;         /* etiqueta arriba, valor debajo */
+    gap: 4px;
+  }
+}

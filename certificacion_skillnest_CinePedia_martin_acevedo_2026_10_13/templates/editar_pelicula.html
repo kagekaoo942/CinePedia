@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Editar Película</title><link rel="stylesheet" href="{{ url_for('static', filename='css/editar_pelicula.css') }}"></head>
+<body>
+  <header class="barra"><h1>Editar Película</h1><nav class="enlaces"><a href="{{ url_for('inicio') }}">Inicio</a><a href="{{ url_for('logout') }}">Cerrar Sesión</a></nav></header>
+  <main class="contenido">
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    <form method="post">
+      <div class="campo"><label>Nombre de Peli:</label><input name="nombre" value="{{ pelicula['nombre'] }}" required></div>
+      <div class="campo"><label>Director:</label><input name="director" value="{{ pelicula['director'] }}" required></div>
+      <div class="campo"><label>Fecha Estreno:</label><input type="date" name="fecha_estreno" value="{{ pelicula['fecha_estreno'] }}" required></div>
+      <div class="campo campo-grande"><label>Sinopsis:</label><textarea name="sinopsis" required>{{ pelicula['sinopsis'] }}</textarea></div>
+      <div class="acciones"><button>Guardar Película</button></div>
+    </form>
+  </main>
+</body>
+</html>

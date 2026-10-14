@@ -12,6 +12,15 @@ body {
   color: #000000;
 }
 
+.mensajes {
+  max-width: 900px;
+  margin: 20px auto 0;
+  padding: 12px 18px;
+  background: #f4c542;
+  border: 2px solid #000;
+  font-size: 20px;
+}
+
 
 /* contenido del encabezado */
 .encabezado {
